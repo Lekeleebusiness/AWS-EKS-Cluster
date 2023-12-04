@@ -3,7 +3,7 @@ variable "region" {
 }
 
 variable "project_name" {
-  default = "testing"
+  default = "lekelee"
 }
 
 variable "environment" {

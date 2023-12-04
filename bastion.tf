@@ -25,6 +25,9 @@ resource "aws_instance" "bastion" {
     aws_security_group.bastion.id
   ]
 
+  tags = {
+    Name = "Bastion-Server"
+  }
 }
 
 
@@ -41,27 +44,10 @@ resource "aws_security_group" "bastion" {
   }
 
   egress {
-    protocol    = "tcp"
-    from_port   = 443
-    to_port     = 443
+    from_port   = 0
+    to_port     = 0
+    protocol    = -1
     cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    protocol    = "tcp"
-    from_port   = 80
-    to_port     = 80
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port = 5432
-    to_port   = 5432
-    protocol  = "tcp"
-    cidr_blocks = [
-      aws_subnet.private_app_subnet_az1.cidr_block,
-      aws_subnet.private_app_subnet_az2.cidr_block,
-    ]
   }
 
   tags = {
