@@ -31,7 +31,7 @@ resource "aws_subnet" "public_subnet_az1" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name                            = "${var.project_name}-${var.environment}-Public-subnet-az1"
+    Name                            = "${var.project_name}-${var.environment}-public-subnet-az1"
     "kubernetes.io/role/elb"        = "1"
     "kubernetes.io/cluster/eksdemo" = "shared"
   }
@@ -45,7 +45,7 @@ resource "aws_subnet" "public_subnet_az2" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name                            = "${var.project_name}-${var.environment}-Public-subnet-az2"
+    Name                            = "${var.project_name}-${var.environment}-public-subnet-az2"
     "kubernetes.io/role/elb"        = "1"
     "kubernetes.io/cluster/eksdemo" = "shared"
   }

@@ -9,7 +9,7 @@ resource "aws_eks_node_group" "eks_ng_public" {
   ami_type       = "AL2_x86_64"
   capacity_type  = "ON_DEMAND"
   disk_size      = 20
-  instance_types = ["t2.micro"]
+  instance_types = ["t2.small"]
 
   remote_access {
     ec2_ssh_key = "bastion-key"
