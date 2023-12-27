@@ -8,7 +8,7 @@ spec:
   storageClassName: ebs-sc
   resources: 
     requests:
-      storage: 4Gi
+      storage: 12Gi
 
 # NEED FOR PVC
 # 1. Dynamic volume provisioning allows storage volumes to be created 
