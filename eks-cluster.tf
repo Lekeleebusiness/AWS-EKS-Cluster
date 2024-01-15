@@ -5,10 +5,10 @@ resource "aws_eks_cluster" "eks_cluster" {
   version  = var.cluster_version
 
   vpc_config {
-    subnet_ids              = [aws_subnet.public_subnet_az1.id, aws_subnet.public_subnet_az2.id]
-    endpoint_private_access = var.cluster_endpoint_private_access
-    endpoint_public_access  = var.cluster_endpoint_public_access
-    public_access_cidrs     = var.cluster_endpoint_public_access_cidrs
+    subnet_ids = [aws_subnet.private_app_subnet_az1.id, aws_subnet.private_app_subnet_az2.id]
+    # endpoint_private_access = var.cluster_endpoint_private_access
+    # endpoint_public_access  = var.cluster_endpoint_public_access
+    # public_access_cidrs     = var.cluster_endpoint_public_access_cidrs
   }
 
   kubernetes_network_config {
