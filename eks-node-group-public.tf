@@ -36,3 +36,4 @@ resource "aws_eks_node_group" "eks_ng_public" {
     Name = "Public-Node-Group"
   }
 }
+
