@@ -1,4 +1,3 @@
-/*
 # Create AWS EKS Node Group - Public
 resource "aws_eks_node_group" "eks_ng_private" {
   cluster_name    = aws_eks_cluster.eks_cluster.name
@@ -19,7 +18,7 @@ resource "aws_eks_node_group" "eks_ng_private" {
   scaling_config {
     desired_size = 1
     min_size     = 1
-    max_size     = 2
+    max_size     = 4
   }
 
   update_config {
@@ -37,4 +36,3 @@ resource "aws_eks_node_group" "eks_ng_private" {
     Name = "Private-Node-Group"
   }
 }
-*/
