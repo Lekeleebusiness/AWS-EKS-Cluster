@@ -7,7 +7,7 @@ annotations:
       url: https://github.com/prometheus-operator/kube-prometheus
   artifacthub.io/operator: "true"
 apiVersion: v2
-appVersion: v0.70.0
+appVersion: v0.71.0
 dependencies:
 - condition: crds.enabled
   name: crds
@@ -24,7 +24,7 @@ dependencies:
 - condition: grafana.enabled
   name: grafana
   repository: https://grafana.github.io/helm-charts
-  version: 7.1.*
+  version: 7.2.*
 - condition: windowsMonitoring.enabled
   name: prometheus-windows-exporter
   repository: https://prometheus-community.github.io/helm-charts
@@ -49,6 +49,8 @@ maintainers:
   name: gkarthiks
 - email: kube-prometheus-stack@sisti.pt
   name: GMartinez-Sisti
+- email: github@jkroepke.de
+  name: jkroepke
 - email: scott@r6by.com
   name: scottrigby
 - email: miroslav.hadzhiev@gmail.com
@@ -60,4 +62,4 @@ sources:
 - https://github.com/prometheus-community/helm-charts
 - https://github.com/prometheus-operator/kube-prometheus
 type: application
-version: 55.8.1
+version: 56.0.0
