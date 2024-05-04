@@ -79,25 +79,25 @@ resource "aws_route_table_association" "public_subnet_az2_route_table_associatio
 }
 
 #create eip for nat gateway
-resource "aws_eip" "nat_gateway_eip" {
-  domain     = "vpc"
-  depends_on = [aws_internet_gateway.internet_gateway]
+# resource "aws_eip" "nat_gateway_eip" {
+#   domain     = "vpc"
+#   depends_on = [aws_internet_gateway.internet_gateway]
 
-  tags = {
-    Name = "${var.project_name}-${var.environment}-eip"
-  }
-}
+#   tags = {
+#     Name = "${var.project_name}-${var.environment}-eip"
+#   }
+# }
 
 
 #NAT Gateway for resources in private subnet to have outbound internet access
-resource "aws_nat_gateway" "nat_gateway" {
-  allocation_id = aws_eip.nat_gateway_eip.id
-  subnet_id     = aws_subnet.public_subnet_az1.id
-  depends_on    = [aws_internet_gateway.internet_gateway]
-  tags = {
-    Name = "${var.project_name}-${var.environment}-nat-gateway"
-  }
-}
+# resource "aws_nat_gateway" "nat_gateway" {
+#   allocation_id = aws_eip.nat_gateway_eip.id
+#   subnet_id     = aws_subnet.public_subnet_az1.id
+#   depends_on    = [aws_internet_gateway.internet_gateway]
+#   tags = {
+#     Name = "${var.project_name}-${var.environment}-nat-gateway"
+#   }
+# }
 
 # create private app subnet az1
 resource "aws_subnet" "private_app_subnet_az1" {
@@ -131,10 +131,10 @@ resource "aws_subnet" "private_app_subnet_az2" {
 resource "aws_route_table" "private_route_table" {
   vpc_id = aws_vpc.vpc.id
 
-  route {
-    cidr_block     = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.nat_gateway.id
-  }
+  # route {
+  #   cidr_block     = "0.0.0.0/0"
+  #   nat_gateway_id = aws_nat_gateway.nat_gateway.id
+  # }
 
   tags = {
     Name = "${var.project_name}-${var.environment}-private-app-route-table"
